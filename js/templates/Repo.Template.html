@@ -1,4 +1,10 @@
-<li class="view" id="<%- owner.login %>_<%- name %>">
-  <a href="#<%- full_name %>"><%- name %></a> - <%- stargazers_count %>  <%- watchers_count %>  <%- forks_count %>
-  <div class="repoDetails"></div>
-</li>
+<div class="view" id="<%- owner.login %>_<%- name %>">
+  <a href="#<%- full_name %>" class="title"><%- name %></a>
+  <span class="repoDetails date"></span>
+  <div class="count_details">
+    <span><img src="styles/img/star.png" alt="Stars Count"  width="12" height="12"/><%- stargazers_count %></span>
+    <span><img src="styles/img/watcher.png" alt="Watchers Count" width="13" height="12"/><%- watchers_count %></span>
+    <span><img src="styles/img/fork.png" alt="Forks Count" width="8" height="12"/><%- forks_count %></span>
+  </div>
+  <div class="repoDetails info"></div>
+</div>

@@ -1,40 +1,48 @@
 define([
   'jquery',
-  'underscore',
   'backbone',
-  'app/views/Repo.View',
-  'app/views/RepoDetails.View',
-  'app/views/Top.View'
-], function ($, _, Backbone, RepoView, RepoDetailsView, TopView) {
+  'js/views/Repo.View',
+  'js/views/RepoDetails.View',
+  'js/views/Top.View',
+  'js/util'
+], function ($, Backbone, RepoView, RepoDetailsView, TopView, Util) {
+  'use strict';
+
   return Backbone.View.extend({
     initialize: function () {
       this.listenTo(this.collection, 'reset sort', this.addAll);
       this.listenTo(this.collection, 'all', this.render);
-      var self = this;
       this.collection.fetch();
     },
 
-    addOne: function (repo) {
-      console.log("addoner");
+    addOne: function (repo, repoEl) {
       var view = new RepoView({model: repo});
-      $("#repo-list").append(view.render().el);
+      repoEl.append(view.render().el);
     },
 
     getDetails: function(user, repo, repoDetails) {
-      var viewDetails = new RepoDetailsView({model: repoDetails});
-      var repoEl = $('#'+user+'_'+repo);
-      repoEl.children('.repoDetails').append(viewDetails.render().el);
-      $('.view').hide();
-      repoEl.show();
+      var viewDetails = new RepoDetailsView({model: repoDetails}),
+        repoEl = $('#'+user+'_'+repo);
+
+      repoEl.children('.repoDetails.info').append(viewDetails.render().el);
+      repoEl.children('.repoDetails.date').html("• Last updated "+Util.convertDate(repoDetails.get('updated_at')));
+      $('.repo').hide();
+      repoEl.parent().show();
       $('#back').show();
     },
 
     addAll: function () {
-      console.log("addAll");
       this.collection.trigger('loadOk');
-      var view = new TopView({model: this.collection.models[0]});
-      $("#repo-list").append(view.render().el);
-      this.collection.each(this.addOne);
+
+      var self = this,
+        view = new TopView({model: this.collection.models[0]}),
+        repoEl = $("#repo-list");
+
+      $("#top").find(".content").html(view.render().el);
+      repoEl.html('');
+      this.collection.each(function(repo) {
+        self.addOne(repo, repoEl);
+      });
     }
   });
 });

@@ -1,4 +1,9 @@
-<span><%- description %></span><br>
-<% _.each(languagesUsed,function(value,key){ %>
-  <%= key %> : <%= value %>%<br>
-<% }); %>
+<span class="description"><%- description %></span>
+<ul class="languages-list">
+  <% _.each(languagesUsed,function(value,key){ %>
+    <li class="language">
+      <span class="languageName"><%= key %></span>
+      <span class="languagePercent"><%= value %>%</span>
+    </li>
+  <% }); %>
+</ul>

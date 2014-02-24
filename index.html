@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <title>Github Popular</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/css/style.css">
 </head>
 <body>
-  <section id="top"></section>
+  <header id="top"><div class="content"></div></header>
   <section id="github">
-    <ul id="repo-list"></ul>
+    <div class="content">
+      <ul id="repo-list"></ul>
+      <div id="back" style="display:none;"><a href="#">Back to the list</a></div>
+    </div>
   </section>
-  <section id="back" style="display:none;"><a href="#">Back to the list</a></section>
   <script data-main="js/main.js" src="vendor/require-2.1.10.min.js"></script>
 </body>
 </html>

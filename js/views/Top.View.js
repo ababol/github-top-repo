@@ -2,8 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!app/templates/Top.Template.html'
+  'text!js/templates/Top.Template.html'
 ], function ($, _, Backbone, TopTemplate) {
+  'use strict';
+
   return Backbone.View.extend({
     template: _.template(TopTemplate),
 

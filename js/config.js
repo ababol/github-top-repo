@@ -3,6 +3,7 @@
 
 define([], function () {
   return {
-    User: 'Fedonono'
+    User: 'jashkenas',
+    Top: 20
   };
 });

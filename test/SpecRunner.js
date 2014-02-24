@@ -1,28 +1,19 @@
 require.config({
-  baseUrl: '.',
+  baseUrl: "..",
   paths: {
+    app: 'js',
     underscore: 'vendor/underscore-1.5.2.min',
     backbone: 'vendor/backbone-1.1.0.min',
     jquery: 'vendor/jquery-2.0.3.min',
     text: 'vendor/require-text'
   },
   shim: {
-    'underscore': {
-      exports: '_'
+    underscore: {
+      exports: "_"
     },
-    'backbone': {
+    backbone: {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     }
   }
-});
-
-require([
-  'jquery',
-  'underscore',
-  'backbone',
-  'js/routers/App.Router'
-], function ($, _, Backbone, Workspace) {
-  new Workspace();
-  Backbone.history.start();
 });

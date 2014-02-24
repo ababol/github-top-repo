@@ -2,9 +2,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!app/templates/Repo.Template.html'
+  'text!js/templates/Repo.Template.html'
 ], function ($, _, Backbone, RepoTemplate) {
+  'use strict';
+
   return Backbone.View.extend({
+    tagName: 'li',
+    className: 'repo',
     template: _.template(RepoTemplate),
 
     render: function () {
