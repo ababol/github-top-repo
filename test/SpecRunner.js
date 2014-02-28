@@ -1,15 +1,14 @@
 require.config({
-  baseUrl: "..",
+  baseUrl: '..',
   paths: {
-    app: 'js',
-    underscore: 'vendor/underscore-1.5.2.min',
-    backbone: 'vendor/backbone-1.1.0.min',
-    jquery: 'vendor/jquery-2.0.3.min',
-    text: 'vendor/require-text'
+    underscore: 'bower_components/underscore/underscore',
+    backbone: 'bower_components/backbone/backbone',
+    jquery: 'bower_components/jquery/dist/jquery',
+    text: 'bower_components/requirejs-text/text'
   },
   shim: {
     underscore: {
-      exports: "_"
+      exports: '_'
     },
     backbone: {
       deps: ['underscore', 'jquery'],

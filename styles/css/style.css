@@ -111,6 +111,7 @@ ul {
 #back {
   padding: 17px 0 17px 0;
   clear: both;
+  display: none;
 }
 
 #back a {

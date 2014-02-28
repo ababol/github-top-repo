@@ -1,16 +1,16 @@
 require.config({
   baseUrl: '.',
   paths: {
-    underscore: 'vendor/underscore-1.5.2.min',
-    backbone: 'vendor/backbone-1.1.0.min',
-    jquery: 'vendor/jquery-2.0.3.min',
-    text: 'vendor/require-text'
+    underscore: 'bower_components/underscore/underscore',
+    backbone: 'bower_components/backbone/backbone',
+    jquery: 'bower_components/jquery/dist/jquery',
+    text: 'bower_components/requirejs-text/text'
   },
   shim: {
-    'underscore': {
+    underscore: {
       exports: '_'
     },
-    'backbone': {
+    backbone: {
       deps: ['underscore', 'jquery'],
       exports: 'Backbone'
     }
@@ -18,11 +18,9 @@ require.config({
 });
 
 require([
-  'jquery',
-  'underscore',
   'backbone',
   'js/routers/App.Router'
-], function ($, _, Backbone, Workspace) {
+], function (Backbone, Workspace) {
   new Workspace();
   Backbone.history.start();
 });
