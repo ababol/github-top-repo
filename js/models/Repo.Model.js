@@ -9,7 +9,8 @@ define([
         name: "",
         full_name: "",
         owner: {
-          login: ""
+          login: "",
+          avatar_url: ""
         },
         stargazers_count: 0,
         watchers_count: 0,
