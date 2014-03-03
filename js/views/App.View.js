@@ -12,7 +12,6 @@ define([
     initialize: function () {
       this.listenTo(this.collection, 'reset sort', this.addAll);
       this.listenTo(this.collection, 'all', this.render);
-      this.collection.fetch();
     },
 
     addOne: function (repo, repoEl) {
